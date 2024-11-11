@@ -1,0 +1,25 @@
+# Build directories
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/Debian/
+/Makefile
+*.cmake
+
+# User-specific files
+*.swp
+*.swo
+*.DS_Store
+*.log
+
+# Test executables
+test_gs
+
+# IDE files (e.g., for VSCode, JetBrains, etc.)
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+*.bak
