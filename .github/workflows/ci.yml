@@ -3,10 +3,10 @@ name: C++ CI with CMake and Googletest
 on:
   push:
     branches:
-      - develop
+      - develop_unittest4
   pull_request:
     branches:
-      - develop
+      - develop_unittest4
 
 jobs:
   build:
