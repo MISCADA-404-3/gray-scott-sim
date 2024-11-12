@@ -3,10 +3,10 @@ name: Group 404 C++ CI with CMake and Googletest
 on:
   push:
     branches:
-      - feature-googletest
+      - '*' # every branch will do CI
   pull_request:
     branches:
-      - feature-googletest
+      - '*'
 
 jobs:
   build:
