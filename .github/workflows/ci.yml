@@ -1,0 +1,31 @@
+name: Group 404 C++ CI with CMake and Googletest
+
+on:
+  push:
+    branches:
+      - feature-googletest
+  pull_request:
+    branches:
+      - feature-googletest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies (apt / cmake / gcc)
+      run: sudo apt-get update && sudo apt-get install -y cmake g++
+
+    - name: Configure CMake
+      run: cmake -S . -B build
+
+    - name: Build project
+      run: cmake --build build
+
+    - name: Run tests
+      run: |
+        cd build
+        ctest --output-on-failure
