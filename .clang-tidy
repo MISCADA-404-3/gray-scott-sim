@@ -1,0 +1,5 @@
+Checks: 
+  - 'clang-analyzer-*' # Enable all rules
+  - '-clang-analyzer-security.insecureAPI.rand' # Disable the rand function check
+WarningsAsErrors: '*'         # Treat all warnings as errors
+HeaderFilterRegex: './.*'   # Check all files in the root directory
