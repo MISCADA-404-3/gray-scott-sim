@@ -1,5 +1,4 @@
-name: Group 404 C++ CI with CMake and Googletest
-
+name: Group 404 C++ CI with CMake, clang-tidy, and Googletest
 on:
   push:
     branches:
@@ -16,14 +15,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install dependencies (apt / cmake / gcc)
-      run: sudo apt-get update && sudo apt-get install -y cmake g++
+    - name: Install dependencies (apt / cmake / gcc / clang-tidy)
+      run: sudo apt-get update && sudo apt-get install -y cmake g++ clang-tidy
 
     - name: Configure CMake
-      run: cmake -S . -B build
+      run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S . -B build
 
     - name: Build project
       run: cmake --build build
+
+    - name: Run clang-tidy analysis
+      run: clang-tidy ./*.cpp -p build --quiet
 
     - name: Run tests
       run: |
